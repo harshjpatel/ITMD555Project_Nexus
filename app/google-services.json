@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "333825133998",
+    "firebase_url": "https://camscannerai-default-rtdb.firebaseio.com",
+    "project_id": "camscannerai",
+    "storage_bucket": "camscannerai.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333825133998:android:2e0126415d5062989d0c3f",
+        "android_client_info": {
+          "package_name": "com.example.nexus"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCH6qgOnnctFA0sejk5_kbSvXzqQZRYjCk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

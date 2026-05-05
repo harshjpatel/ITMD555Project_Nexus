@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Nexus</string>
+    <string name="selected_count">%d selected</string>
+    <string name="nexus_ai">NEXUS AI</string>
+    <string name="nexus_subtitle">Your personalized intelligence feed</string>
+    <string name="show_bookmarks">Show Bookmarks</string>
+    <string name="user_profile">User Profile</string>
+    <string name="search_hint">Search posts, communities&#8230;</string>
+    <string name="select_communities">Select Communities</string>
+    <string name="add_new_post">Add new post</string>
+    <string name="customize_your_feed">Customize Your Feed</string>
+    <string name="customize_subtitle">Select communities you want to follow</string>
+    <string name="search_communities_hint">Search communities&#8230;</string>
+    <string name="start_my_feed">START MY FEED</string>
+    <string name="user_name">Email ID</string>
+    <string name="user_email_placeholder">user@example.com</string>
+    <string name="user_id_prefix">ID: %1$s</string>
+    <string name="logout">Logout</string>
+    <string name="selected_count_initial">0 selected</string>
+    <string name="community_format">r/%1$s</string>
+</resources>

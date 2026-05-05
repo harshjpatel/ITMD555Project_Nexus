@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="appBackground">#0B0F19</color>
+    <color name="headerBackground">#101726</color>
+    <color name="titleText">#FFFFFF</color>
+    <color name="subtitleText">#9AA4B2</color>
+    <color name="inputText">#FFFFFF</color>
+    <color name="inputHint">#7C8698</color>
+    <color name="searchBackground">#1A2133</color>
+    <color name="searchBorder">#2A3448</color>
+</resources>

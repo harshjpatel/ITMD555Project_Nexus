@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/appBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:fitsSystemWindows="true">
+
+        <!-- HEADER -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="16dp"
+            android:background="@color/headerBackground">
+
+            <!-- Title & Subtitle Group -->
+            <LinearLayout
+                android:id="@+id/headerTextLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@+id/actionButtonsContainer"
+                android:layout_marginEnd="10dp">
+
+                <TextView
+                    android:id="@+id/titleNexus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nexus_ai"
+                    android:textStyle="bold"
+                    android:textSize="26sp"
+                    android:textColor="@color/titleText"
+                    android:letterSpacing="0.05"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nexus_subtitle"
+                    android:textSize="14sp"
+                    android:textColor="@color/subtitleText"
+                    android:layout_marginTop="4dp"/>
+
+            </LinearLayout>
+
+            <!-- Bookmark & Profile Group -->
+            <LinearLayout
+                android:id="@+id/actionButtonsContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignTop="@+id/headerTextLayout"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Bookmark Button -->
+                <ImageButton
+                    android:id="@+id/btnShowBookmarks"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_bookmark"
+                    app:tint="@color/titleText"
+                    android:padding="10dp"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/show_bookmarks"/>
+
+                <!-- Profile Button -->
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:id="@+id/btnUserProfile"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:layout_marginStart="8dp"
+                    android:padding="2dp"
+                    android:src="@drawable/ic_launcher_foreground"
+                    android:background="#E0E7FF"
+                    app:shapeAppearanceOverlay="@style/CircleAppearance"
+                    app:strokeColor="#6C7BFF"
+                    app:strokeWidth="2dp"
+                    android:contentDescription="@string/user_profile"
+                    android:clickable="true"
+                    android:focusable="true" />
+
+            </LinearLayout>
+
+            <!-- SEARCH & FILTER ROW -->
+            <LinearLayout
+                android:id="@+id/searchFilterRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/headerTextLayout"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- SEARCH BAR -->
+                <LinearLayout
+                    android:id="@+id/searchBarLayout"
+                    android:layout_width="0dp"
+                    android:layout_height="46dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/search_bar_bg"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="14dp">
+
+                    <EditText
+                        android:id="@+id/searchPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:hint="@string/search_hint"
+                        android:autofillHints="none"
+                        android:textColor="@color/inputText"
+                        android:textColorHint="@color/inputHint"
+                        android:textSize="14sp"
+                        android:maxLines="1"
+                        android:inputType="text"/>
+                </LinearLayout>
+
+                <!-- Filter Button (Communities) -->
+                <ImageButton
+                    android:id="@+id/btnFilterCommunities"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@drawable/ic_filter"
+                    app:tint="@color/titleText"
+                    android:padding="12dp"
+                    android:scaleType="centerInside"
+                    android:contentDescription="@string/select_communities"/>
+
+                <!-- Filter Button (Date) -->
+                <ImageButton
+                    android:id="@+id/btnFilterDate"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginStart="4dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:src="@android:drawable/ic_menu_today"
+                    app:tint="@color/titleText"
+                    android:padding="12dp"
+                    android:scaleType="centerInside"
+                    android:contentDescription="Filter by date"/>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <!-- FEED -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/feedRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:paddingTop="12dp"
+            android:clipToPadding="false"/>
+
+    </LinearLayout>
+
+    <!-- ADD POST BUTTON -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addPostFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@drawable/ic_add"
+        app:backgroundTint="#6C7BFF"
+        app:tint="#FFFFFF"
+        app:elevation="8dp"
+        android:contentDescription="@string/add_new_post"/>
+
+</FrameLayout>

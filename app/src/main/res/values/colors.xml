@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="appBackground">#FFFFFF</color>
+    <color name="headerBackground">#F5F7FB</color>
+    <color name="titleText">#111827</color>
+    <color name="subtitleText">#6B7280</color>
+    <color name="inputText">#111827</color>
+    <color name="inputHint">#9CA3AF</color>
+    <color name="searchBackground">#FFFFFF</color>
+    <color name="searchBorder">#E5E7EB</color>
+    <color name="orange">#FF9800</color>
+    <color name="upvote_green">#4CAF50</color>
+    <color name="downvote_red">#F44336</color>
+    <color name="share_gray">#374151</color>
+    <color name="divider">#E5E7EB</color>
+    <color name="comment_line">#D1D5DB</color>
+</resources>

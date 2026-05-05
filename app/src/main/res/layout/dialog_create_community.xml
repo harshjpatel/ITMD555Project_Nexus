@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="28dp"
+    app:cardElevation="16dp"
+    app:cardBackgroundColor="#1A1F2A"
+    android:layout_margin="16dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="28dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New Community"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:letterSpacing="0.02"
+                android:layout_marginBottom="24dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="COMMUNITY NAME"
+                android:textSize="11sp"
+                android:textColor="#6C7BFF"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editCommunityName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="e.g. Android Developers"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#565E71"
+                android:background="@drawable/bg_post_input"
+                android:textSize="16sp"
+                android:padding="16dp"
+                android:layout_marginBottom="20dp"
+                android:inputType="textCapWords"
+                android:importantForAutofill="no"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SUMMARY"
+                android:textSize="11sp"
+                android:textColor="#6C7BFF"
+                android:textStyle="bold"
+                android:letterSpacing="0.1"
+                android:layout_marginBottom="8dp"/>
+
+            <EditText
+                android:id="@+id/editCommunitySummary"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="What is this community about?"
+                android:textColor="#B0B8C5"
+                android:textColorHint="#565E71"
+                android:background="@drawable/bg_post_input"
+                android:textSize="15sp"
+                android:padding="16dp"
+                android:minLines="4"
+                android:gravity="top"
+                android:layout_marginBottom="20dp"
+                android:inputType="textMultiLine|textCapSentences"
+                android:importantForAutofill="no"
+                android:lineSpacingExtra="4dp"/>
+
+            <!-- IMAGE SELECTION AREA -->
+            <LinearLayout
+                android:id="@+id/layoutSelectCommImage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_image_select"
+                android:padding="20dp"
+                android:gravity="center"
+                android:layout_marginBottom="32dp"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/imgCommPreview"
+                    android:layout_width="match_parent"
+                    android:layout_height="120dp"
+                    android:scaleType="centerCrop"
+                    android:visibility="gone"
+                    android:layout_marginBottom="12dp"
+                    android:background="@drawable/bg_post_input"/>
+
+                <TextView
+                    android:id="@+id/textAddCommImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="＋ Add Icon"
+                    android:textColor="#6C7BFF"
+                    android:textStyle="bold"
+                    android:textSize="14sp"
+                    android:letterSpacing="0.05"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCancelComm"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="54dp"
+                    android:text="Discard"
+                    android:textColor="#9CA3AF"
+                    android:textAllCaps="false"
+                    android:textSize="15sp"/>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnCreateComm"
+                    android:layout_width="140dp"
+                    android:layout_height="54dp"
+                    android:text="Create"
+                    android:backgroundTint="#6C7BFF"
+                    android:textColor="#FFFFFF"
+                    android:layout_marginStart="16dp"
+                    app:cornerRadius="16dp"
+                    android:textAllCaps="false"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:elevation="4dp"/>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.cardview.widget.CardView>

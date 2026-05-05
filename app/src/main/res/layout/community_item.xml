@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardView"
+    android:layout_width="match_parent"
+    android:layout_height="140dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="22dp"
+    app:cardElevation="6dp"
+    app:strokeWidth="2dp"
+    app:strokeColor="#E6E8F0"
+    android:foreground="?attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:padding="14dp">
+
+            <!-- Icon background circle -->
+            <FrameLayout
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:background="@drawable/community_icon_bg"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/communityIcon"
+                    android:layout_width="34dp"
+                    android:layout_height="34dp"
+                    android:tint="#3F6DF6"
+                    android:scaleType="centerInside"
+                    tools:ignore="ContentDescription,UseAppTint" />
+
+            </FrameLayout>
+
+            <!-- Community Name -->
+            <TextView
+                android:id="@+id/communityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Community"
+                android:textStyle="bold"
+                android:textColor="#2B2B2B"
+                android:textSize="15sp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <!-- Green Checkmark (Hidden by default) -->
+        <ImageView
+            android:id="@+id/checkMark"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="12dp"
+            android:src="@drawable/ic_check_circle"
+            android:visibility="gone"
+            app:tint="#4CAF50"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+</com.google.android.material.card.MaterialCardView>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F6F8FC"
+    android:padding="20dp"
+    android:fitsSystemWindows="true">
+
+    <!-- Header with Profile -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@+id/btnUserProfile">
+
+            <!-- Title -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/customize_your_feed"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:textColor="#222222" />
+
+            <!-- Subtitle -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/customize_subtitle"
+                android:textSize="14sp"
+                android:textColor="#777777"
+                android:layout_marginTop="4dp" />
+        </LinearLayout>
+
+        <!-- Profile Button -->
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/btnUserProfile"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="2dp"
+            android:src="@drawable/ic_launcher_foreground"
+            android:background="#E0E7FF"
+            app:shapeAppearanceOverlay="@style/CircleAppearance"
+            app:strokeColor="#6C7BFF"
+            app:strokeWidth="2dp"
+            android:contentDescription="@string/user_profile"
+            android:clickable="true"
+            android:focusable="true" />
+    </RelativeLayout>
+
+    <!-- SEARCH BAR -->
+    <LinearLayout
+        android:id="@+id/searchBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="46dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/search_bar_bg"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="14dp">
+
+        <EditText
+            android:id="@+id/searchCommunities"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@null"
+            android:hint="@string/search_communities_hint"
+            android:autofillHints="none"
+            android:textColor="#111827"
+            android:textColorHint="#9CA3AF"
+            android:textSize="14sp"
+            android:maxLines="1"
+            android:inputType="text"/>
+    </LinearLayout>
+
+    <!-- Selected count (Center Position) -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="16dp">
+
+        <TextView
+            android:id="@+id/selectedCountText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_selected_count"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="8dp"
+            android:text="@string/selected_count_initial"
+            android:textColor="#3F6DF6"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center" />
+    </LinearLayout>
+
+    <!-- Dynamic Community Grid -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/communityRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="10dp"/>
+
+    <!-- Continue Button (renamed for clarity) -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/startFeedBtn"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="@string/start_my_feed"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#3F6DF6"
+        android:textColor="#FFFFFF"
+        app:cornerRadius="14dp" />
+
+</LinearLayout>
