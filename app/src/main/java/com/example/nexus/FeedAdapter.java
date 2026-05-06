@@ -1,3 +1,5 @@
+// Name: Harsh Patel (A20369913)
+
 package com.example.nexus;
 
 import android.annotation.SuppressLint;
@@ -295,7 +297,9 @@ public class FeedAdapter extends RecyclerView.Adapter<FeedAdapter.ViewHolder> {
         // queryParams link
         String queryParams = "?title=" + Uri.encode(post.getTitle()) +
                 "&content=" + Uri.encode(post.getContent()) +
-                "&author=" + Uri.encode(post.getAuthorName() != null ? post.getAuthorName() : "nexus");
+                "&author=" + Uri.encode(post.getAuthorName() != null ? post.getAuthorName() : "nexus") +
+                "&upvotes=" + post.getUpvotes() +
+                "&comments=" + post.getCommentCount();
         // postLink
         String postLink = baseUrl + queryParams;
 

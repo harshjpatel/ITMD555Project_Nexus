@@ -1,3 +1,5 @@
+// Name: Harsh Patel (A20369913)
+
 package com.example.nexus;
 
 import android.content.Intent;
@@ -26,6 +28,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -189,6 +192,31 @@ public class PostDetailActivity extends AppCompatActivity {
         TextView txtName = dialogView.findViewById(R.id.profileName);
         TextView txtEmail = dialogView.findViewById(R.id.profileEmail);
         Button btnLogout = dialogView.findViewById(R.id.btnLogout);
+        Button btnShowFCMToken = dialogView.findViewById(R.id.btnShowFCMToken);
+
+        // Show FCM Token logic
+        btnShowFCMToken.setOnClickListener(v -> {
+            FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Toast.makeText(this, "Fetching FCM token failed", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    String token = task.getResult();
+                    new MaterialAlertDialogBuilder(this)
+                        .setTitle("FCM Registration Token")
+                        .setMessage(token)
+                        .setPositiveButton("Copy", (d, w) -> {
+                            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(android.content.Context.CLIPBOARD_SERVICE);
+                            android.content.ClipData clip = android.content.ClipData.newPlainText("FCM Token", token);
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(this, "Token copied!", Toast.LENGTH_SHORT).show();
+                        })
+                        .setNegativeButton("Close", null)
+                        .show();
+                });
+        });
 
         // ALWAYS FETCH LATEST FROM FIRESTORE FOR ACCURACY
         FirebaseFirestore.getInstance().collection("users").document(user.getUid()).get()
@@ -582,7 +610,9 @@ public class PostDetailActivity extends AppCompatActivity {
         // Set up queryParams
         String queryParams = "?title=" + Uri.encode(tempCurrentPost.getTitle()) +
                 "&content=" + Uri.encode(tempCurrentPost.getContent()) +
-                "&author=" + Uri.encode(tempCurrentPost.getAuthorEmail() != null ? tempCurrentPost.getAuthorEmail() : "nexus");
+                "&author=" + Uri.encode(tempCurrentPost.getAuthorEmail() != null ? tempCurrentPost.getAuthorEmail() : "nexus") +
+                "&upvotes=" + tempCurrentPost.getUpvotes() +
+                "&comments=" + (tempCurrentPost.getCommentCount() > 0 ? tempCurrentPost.getCommentCount() : 0);
         // Set up postLink
         String postLink = baseUrl + queryParams;
 

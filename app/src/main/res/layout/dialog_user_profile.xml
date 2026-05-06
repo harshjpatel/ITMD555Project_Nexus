@@ -150,11 +150,30 @@
         </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShowFCMToken"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:layout_marginTop="16dp"
+            android:text="Show FCM Token"
+            android:textColor="#10B981"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:backgroundTint="#ECFDF5"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/ic_dialog_info"
+            app:iconGravity="textStart"
+            app:iconPadding="12dp"
+            app:iconSize="20dp"
+            app:iconTint="#10B981"
+            app:rippleColor="#D1FAE5" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRefreshWidget"
             style="@style/Widget.Material3.Button.TonalButton"
             android:layout_width="match_parent"
             android:layout_height="56dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="16dp"
             android:text="Refresh Widget"
             android:textColor="#6C7BFF"
             android:textSize="16sp"

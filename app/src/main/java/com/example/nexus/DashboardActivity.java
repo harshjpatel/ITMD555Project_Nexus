@@ -1,6 +1,10 @@
+// Name: Harsh Patel (A20369913)
+
 package com.example.nexus;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -22,6 +26,7 @@ import java.util.Map;
 import com.google.firebase.auth.FirebaseAuth;
 import android.widget.TextView;
 import com.google.firebase.firestore.*;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,6 +136,17 @@ public class DashboardActivity extends AppCompatActivity {
 
         // Set up the user profile button
         findViewById(R.id.btnUserProfile).setOnClickListener(v -> showUserProfileDialog());
+
+        // Request Notification Permission for Android 13+
+        requestNotificationPermission();
+    }
+
+    private void requestNotificationPermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (checkSelfPermission(android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                requestPermissions(new String[]{android.Manifest.permission.POST_NOTIFICATIONS}, 101);
+            }
+        }
     }
 
     // Set up the date picker
@@ -262,6 +278,31 @@ public class DashboardActivity extends AppCompatActivity {
         Button tempBtnLogout = dialogView.findViewById(R.id.btnLogout);
         // Set up the tempBtnRefreshWidget
         Button tempBtnRefreshWidget = dialogView.findViewById(R.id.btnRefreshWidget);
+        Button btnShowFCMToken = dialogView.findViewById(R.id.btnShowFCMToken);
+
+        // Show FCM Token logic
+        btnShowFCMToken.setOnClickListener(v -> {
+            FirebaseMessaging.getInstance().getToken()
+                .addOnCompleteListener(task -> {
+                    if (!task.isSuccessful()) {
+                        Toast.makeText(this, "Fetching FCM token failed", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                    String token = task.getResult();
+                    new MaterialAlertDialogBuilder(this)
+                        .setTitle("FCM Registration Token")
+                        .setMessage(token)
+                        .setPositiveButton("Copy", (d, w) -> {
+                            android.content.ClipboardManager clipboard = (android.content.ClipboardManager) getSystemService(android.content.Context.CLIPBOARD_SERVICE);
+                            android.content.ClipData clip = android.content.ClipData.newPlainText("FCM Token", token);
+                            clipboard.setPrimaryClip(clip);
+                            Toast.makeText(this, "Token copied!", Toast.LENGTH_SHORT).show();
+                        })
+                        .setNegativeButton("Close", null)
+                        .show();
+                });
+        });
 
         // Set up the refresh widget button
         tempBtnRefreshWidget.setOnClickListener(v -> {

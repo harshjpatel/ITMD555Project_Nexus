@@ -1,3 +1,5 @@
+// Name: Harsh Patel (A20369913)
+
 package com.example.nexus;
 
 import android.appwidget.AppWidgetManager;

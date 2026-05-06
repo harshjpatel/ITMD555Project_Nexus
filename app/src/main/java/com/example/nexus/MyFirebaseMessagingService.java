@@ -34,7 +34,15 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains notification payload
         if (remoteMessage.getNotification() != null) {
             // Handle notification payload
-            Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
+            String notificationBody = remoteMessage.getNotification().getBody();
+            Log.d(TAG, "Message Notification Body: " + notificationBody);
+
+            // Show toast for foreground presentation
+            new android.os.Handler(android.os.Looper.getMainLooper()).post(() -> {
+                android.widget.Toast.makeText(getApplicationContext(),
+                        "FCM Notification: " + notificationBody,
+                        android.widget.Toast.LENGTH_LONG).show();
+            });
         }
     }
 

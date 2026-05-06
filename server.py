@@ -4,7 +4,7 @@ import urllib.parse
 class MockServer(BaseHTTPRequestHandler):
     def do_GET(self):
         self.send_response(200)
-        self.send_header("Content-type", "text/html")
+        self.send_header("Content-type", "text/html; charset=utf-8")
         self.end_headers()
 
         # Parse URL and query parameters
@@ -15,11 +15,14 @@ class MockServer(BaseHTTPRequestHandler):
         title = params.get('title', ['Post Title'])[0]
         content = params.get('content', ['Post content goes here...'])[0]
         author = params.get('author', ['Anonymous'])[0]
+        upvotes = params.get('upvotes', ['0'])[0]
+        comments = params.get('comments', ['0'])[0]
 
         html = f"""
         <!DOCTYPE html>
         <html>
         <head>
+            <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1">
             <title>Nexus - {title}</title>
             <style>
@@ -108,15 +111,16 @@ class MockServer(BaseHTTPRequestHandler):
                 <div class="content">{content}</div>
                 <div class="divider"></div>
                 <div class="actions">
-                    <div class="action-item"><span>▲</span> Upvote</div>
-                    <div class="action-item"><span>▼</span> Downvote</div>
-                    <div class="action-item"><span>💬</span> Comment</div>
+                    <div class="action-item"><span>▲</span> {upvotes}</div>
+                    <div class="action-item"><span>▼</span></div>
+                    <div class="action-item"><span>💬</span> {comments}</div>
                     <div class="action-item"><span>🔗</span> Share</div>
                 </div>
             </div>
         </body>
         </html>
         """
+
         self.wfile.write(bytes(html, "utf8"))
 
 print("Server starting on http://localhost:8080...")
