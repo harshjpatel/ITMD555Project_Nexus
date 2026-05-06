@@ -57,6 +57,6 @@ This ensures the **Nexus Dashboard** is relevant from the very first login.
 ---
 
 ## 📊 Presentation
-👉 [View Project Presentation](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/ITMD_555_HPatel_Project_Nexus_presentation.pptx)
+👉 [View Project Presentation](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/ITMD_555_HPatel_Project_Nexus_presentation.pdf)
 
 ---
