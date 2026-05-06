@@ -57,8 +57,8 @@ This ensures the **Nexus Dashboard** is relevant from the very first login.
 ---
 
 ## 📊 Presentation and files
-👉 [View Project Presentation](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/ITMD_555_HPatel_Project_Nexus_presentation.pdf)
-👉 [View Project snapshots file](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/H_Patel_FinalProject_snapshots.pdf)
-👉 [View Project Code file](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/H_Patel_FinalProject_project_code.pdf)
+- 👉 [View Project Presentation](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/ITMD_555_HPatel_Project_Nexus_presentation.pdf)
+- 👉 [View Project snapshots file](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/H_Patel_FinalProject_snapshots.pdf)
+- 👉 [View Project Code file](https://github.com/harshjpatel/ITMD555Project_Nexus/blob/main/H_Patel_FinalProject_project_code.pdf)
 
 ---
