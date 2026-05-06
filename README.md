@@ -25,6 +25,12 @@ This ensures the **Nexus Dashboard** is relevant from the very first login.
 - Community-based feed with filtering options  
 - Create and engage across multiple communities  
 - Firebase-powered backend (NoSQL database)
+- Can see recent post in App widget.
+- Cloud Messaging (FCM): Used for push notifications (via MyFirebaseMessagingService).
+- AppWidget API: Powers the home screen widget (AppWidgetProvider, RemoteViews).
+- WorkManager API: Handles reliable background tasks like the WidgetUpdateWorker.
+- AlarmManager API: Specifically used in your PostWidget to bypass the standard 30-minute widget update limit for high-frequency (60s) refreshes.
+
 
 ---
 
@@ -35,10 +41,18 @@ This ensures the **Nexus Dashboard** is relevant from the very first login.
 ---
 
 ## 🔌 APIs Used
-- Google Firebase APIs  
-  - Firebase Authentication API  
-  - Cloud Firestore API  
-- Web-based routing API (for cross-platform sharing, currently running on localhost)
+- Firebase Firestore API
+- Firebase Auth API
+- Firebase Cloud Messaging (FCM) API
+- Firebase Analytics API
+- Android AppWidget API
+- Android WorkManager API
+- Android AlarmManager API
+- Glide API
+- Google Material Design Components API
+- Android Jetpack (AppCompat/ConstraintLayout) APIs
+- Custom Share Preview API (Local Python Server)
+
 
 ---
 
